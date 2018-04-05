@@ -1,4 +1,4 @@
-<view class="index">
+<view class="index index-bd">
 <!-- 
  <view class="page-section">
       <view class="page-section-title">
@@ -13,26 +13,32 @@
       </view>
     </view> -->
 
- <view id="{{header.id}}" class="kind-list-item" >
-           
-          
+ <view id="{{header.id}}" class="kind-list-item " > 
               <view class="flex-wrp " style="flex-direction:row; width=100%">
-               
                 <view class="flex-item-left dashed" >
                       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-                      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-                      <view class="kind-list-text">{{header.name}}</view> 
-
-                    <!-- <view class="kind-list-text">{{header.name}}</view> -->
+                      <view class="kind-list-text title-who-text ">{{header.name}}</view> 
                 </view>
                 <view class="flex-item-right dashed">
-                  
+                  <view class="kind-list-text  ">{{header.taskNmae}}</view> 
+                  <view class="kind-list-text title-who-text ">{{header.taskActioName}}</view> 
                   <button class="mini-btn" type="primary" size="mini">发布</button>
                 </view>
-        
               </view>
           </view>
-          
+   
+  <view id="{{dayList.id}}" class="kind-list-item " > 
+      <view class="flex-wrp " style="flex-direction:row; width=100%">
+          <view class="flex-item-left dashed" >     
+            <view class="kind-list-text title-who-text ">{{dayList.name}}</view> 
+          </view>
+          <view class="flex-item-right dashed">
+            <button class="mini-btn" type="primary" size="mini">发布</button>
+          </view>
+      </view>
+  </view>
+ </view>    
+      
  <!-- <view class="index-bd">
     <view class="kind-list">
       <block >
@@ -78,4 +84,4 @@
       </block>
     </view>
   </view> -->
-</view>
+<!-- </view> -->

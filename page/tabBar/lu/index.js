@@ -4,7 +4,13 @@ Page({
   data: {
     header:{
       id:'messageBoard',
-      name:'领队'
+      name:'领队',
+      taskNmae:'澳大利亚【插班生】体验营',
+      taskActioName:'发布一条内容'
+    },
+    dayList: {
+      id: 'dayBoard',
+      name: 'day1'
     },
     list: [
     

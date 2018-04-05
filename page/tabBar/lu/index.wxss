@@ -1,29 +1,39 @@
 @import "../../common/index.wxss";
 
+.title-padding{
+ padding:0 30rpx 40rpx;
+}
+
 .flex-wrp{
+  
+
     margin-top: 60rpx;
     display:flex;
   }
   .flex-item-right{
     width: 75%;
-    height: 300rpx;
+    /* height: 300rpx; */
     font-size: 26rpx;
   }
   .flex-item-left{
     width: 25%;
-    height: 300rpx;
+    /* height: 300rpx; */
     font-size: 26rpx;
   }
   .flex-item-V{
     margin: 0 auto;
-    width: 300rpx;
+     width: 300rpx; 
     height: 200rpx;
   }
 
+.title-who-text {
+  font-size: 20px;
+  text-align: center;
+}
 
 .dashed {
 
-    border:0.5px solid green;
+    border:0.1px solid gray;
     border-style: dashed dashed dashed dashed; 
     border-collapse:collapse;
 }
