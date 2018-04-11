@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "tuanInfo",
+            "otherEntityName": "tuanInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comment",
+            "otherEntityName": "messageComment",
+            "otherEntityRelationshipName": "message"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tuanId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "body",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dayId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pig1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pig2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pig3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "voice",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vudio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deployToQuan",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180410154403",
+    "entityTableName": "message",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

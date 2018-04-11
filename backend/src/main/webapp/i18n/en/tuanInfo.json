@@ -1,0 +1,36 @@
+
+{
+    "backendApp": {
+        "tuanInfo" : {
+            "home": {
+                "title": "Tuan Infos",
+                "createLabel": "Create a new Tuan Info",
+                "createOrEditLabel": "Create or edit a Tuan Info"
+            },
+            "created": "A new Tuan Info is created with identifier {{ param }}",
+            "updated": "A Tuan Info is updated with identifier {{ param }}",
+            "deleted": "A Tuan Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tuan Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Tuan Info"
+            },
+            "leader": "Leader",
+            "tuanName": "Tuan Name",
+            "tuanDescrption": "Tuan Descrption",
+            "city": "City",
+            "country": "Country",
+            "teamMemberCount": "Team Member Count",
+            "tuanStartTime": "Tuan Start Time",
+            "tuanEndTime": "Tuan End Time",
+            "tuanCreatTime": "Tuan Creat Time",
+            "creator": "Creator",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "tuanmember": "Tuanmember",
+            "daysechudlerinfo": "Daysechudlerinfo",
+            "message": "Message"
+        }
+    }
+}

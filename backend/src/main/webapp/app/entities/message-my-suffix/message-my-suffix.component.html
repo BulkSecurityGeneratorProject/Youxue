@@ -1,0 +1,90 @@
+<div>
+    <h2>
+        <span jhiTranslate="backendApp.message.home.title">Messages</span>
+        <button class="btn btn-primary float-right jh-create-entity create-message-my-suffix" [routerLink]="['/', { outlets: { popup: ['message-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="backendApp.message.home.createLabel">
+            Create new Message
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="messages">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="backendApp.message.tuanId">Tuan Id</span></th>
+            <th><span jhiTranslate="backendApp.message.body">Body</span></th>
+            <th><span jhiTranslate="backendApp.message.dayId">Day Id</span></th>
+            <th><span jhiTranslate="backendApp.message.type">Type</span></th>
+            <th><span jhiTranslate="backendApp.message.title">Title</span></th>
+            <th><span jhiTranslate="backendApp.message.pig1">Pig 1</span></th>
+            <th><span jhiTranslate="backendApp.message.pig2">Pig 2</span></th>
+            <th><span jhiTranslate="backendApp.message.pig3">Pig 3</span></th>
+            <th><span jhiTranslate="backendApp.message.voice">Voice</span></th>
+            <th><span jhiTranslate="backendApp.message.vudio">Vudio</span></th>
+            <th><span jhiTranslate="backendApp.message.deployToQuan">Deploy To Quan</span></th>
+            <th><span jhiTranslate="backendApp.message.creator">Creator</span></th>
+            <th><span jhiTranslate="backendApp.message.createDate">Create Date</span></th>
+            <th><span jhiTranslate="backendApp.message.updateDate">Update Date</span></th>
+            <th><span jhiTranslate="backendApp.message.tuanInfo">Tuan Info</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let message of messages ;trackBy: trackId">
+                <td><a [routerLink]="['../message-my-suffix', message.id ]">{{message.id}}</a></td>
+                <td>{{message.tuanId}}</td>
+                <td>{{message.body}}</td>
+                <td>{{message.dayId}}</td>
+                <td>{{message.type}}</td>
+                <td>{{message.title}}</td>
+                <td>{{message.pig1}}</td>
+                <td>{{message.pig2}}</td>
+                <td>{{message.pig3}}</td>
+                <td>{{message.voice}}</td>
+                <td>{{message.vudio}}</td>
+                <td>{{message.deployToQuan}}</td>
+                <td>{{message.creator}}</td>
+                <td>{{message.createDate | date:'medium'}}</td>
+                <td>{{message.updateDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="message.tuanInfoId">
+                        <a [routerLink]="['../tuan-info-my-suffix', message.tuanInfoId  ]" >{{message.tuanInfoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../message-my-suffix', message.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'message-my-suffix/'+ message.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'message-my-suffix/'+ message.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

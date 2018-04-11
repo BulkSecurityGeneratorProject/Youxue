@@ -1,0 +1,32 @@
+
+{
+    "backendApp": {
+        "daySechudlerInfo" : {
+            "home": {
+                "title": "Day Sechudler Infos",
+                "createLabel": "Create a new Day Sechudler Info",
+                "createOrEditLabel": "Create or edit a Day Sechudler Info"
+            },
+            "created": "A new Day Sechudler Info is created with identifier {{ param }}",
+            "updated": "A Day Sechudler Info is updated with identifier {{ param }}",
+            "deleted": "A Day Sechudler Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Day Sechudler Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Day Sechudler Info"
+            },
+            "tuanId": "Tuan Id",
+            "time": "Time",
+            "weather": "Weather",
+            "dayName": "Day Name",
+            "mood": "Mood",
+            "amSchedule": "Am Schedule",
+            "pmSchedule": "Pm Schedule",
+            "creator": "Creator",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "tuanInfo": "Tuan Info"
+        }
+    }
+}

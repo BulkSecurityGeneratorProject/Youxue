@@ -1,0 +1,88 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDaySechudlerInfoLabel" jhiTranslate="backendApp.daySechudlerInfo.home.createOrEditLabel">Create or edit a Day Sechudler Info</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!daySechudlerInfo.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="daySechudlerInfo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.tuanId" for="field_tuanId">Tuan Id</label>
+            <input type="number" class="form-control" name="tuanId" id="field_tuanId"
+                [(ngModel)]="daySechudlerInfo.tuanId" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.time" for="field_time">Time</label>
+            <div class="d-flex">
+                <input id="field_time" type="datetime-local" class="form-control" name="time" [(ngModel)]="daySechudlerInfo.time"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.weather" for="field_weather">Weather</label>
+            <input type="text" class="form-control" name="weather" id="field_weather"
+                [(ngModel)]="daySechudlerInfo.weather" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.dayName" for="field_dayName">Day Name</label>
+            <input type="text" class="form-control" name="dayName" id="field_dayName"
+                [(ngModel)]="daySechudlerInfo.dayName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.mood" for="field_mood">Mood</label>
+            <input type="text" class="form-control" name="mood" id="field_mood"
+                [(ngModel)]="daySechudlerInfo.mood" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.amSchedule" for="field_amSchedule">Am Schedule</label>
+            <input type="text" class="form-control" name="amSchedule" id="field_amSchedule"
+                [(ngModel)]="daySechudlerInfo.amSchedule" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.pmSchedule" for="field_pmSchedule">Pm Schedule</label>
+            <input type="text" class="form-control" name="pmSchedule" id="field_pmSchedule"
+                [(ngModel)]="daySechudlerInfo.pmSchedule" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.creator" for="field_creator">Creator</label>
+            <input type="text" class="form-control" name="creator" id="field_creator"
+                [(ngModel)]="daySechudlerInfo.creator" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.createDate" for="field_createDate">Create Date</label>
+            <div class="d-flex">
+                <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" [(ngModel)]="daySechudlerInfo.createDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.updateDate" for="field_updateDate">Update Date</label>
+            <div class="d-flex">
+                <input id="field_updateDate" type="datetime-local" class="form-control" name="updateDate" [(ngModel)]="daySechudlerInfo.updateDate"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.daySechudlerInfo.tuanInfo" for="field_tuanInfo">Tuan Info</label>
+            <select class="form-control" id="field_tuanInfo" name="tuanInfo" [(ngModel)]="daySechudlerInfo.tuanInfoId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tuanInfoOption.id" *ngFor="let tuanInfoOption of tuaninfos; trackBy: trackTuanInfoById">{{tuanInfoOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

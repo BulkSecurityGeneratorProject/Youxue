@@ -1,0 +1,48 @@
+
+<div *ngIf="messageComment">
+    <h2><span jhiTranslate="backendApp.messageComment.detail.title">Message Comment</span> {{messageComment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.messageComment.messageBelongId">Message Belong Id</span></dt>
+        <dd>
+            <span>{{messageComment.messageBelongId}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.messageComment.creator">Creator</span></dt>
+        <dd>
+            <span>{{messageComment.creator}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.messageComment.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{messageComment.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.messageComment.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{messageComment.updateDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.messageComment.body">Body</span></dt>
+        <dd>
+            <span>{{messageComment.body}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.messageComment.message">Message</span></dt>
+        <dd>
+            <div *ngIf="messageComment.messageId">
+                <a [routerLink]="['/message-my-suffix', messageComment.messageId]">{{messageComment.messageId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'message-comment-my-suffix/'+ messageComment.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

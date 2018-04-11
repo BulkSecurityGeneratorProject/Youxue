@@ -1,0 +1,81 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tuanmember",
+            "otherEntityName": "tuanMember",
+            "otherEntityRelationshipName": "tuanInfo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "daysechudlerinfo",
+            "otherEntityName": "daySechudlerInfo",
+            "otherEntityRelationshipName": "tuanInfo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "message",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "tuanInfo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "leader",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tuanName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tuanDescrption",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "teamMemberCount",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "tuanStartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "tuanEndTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "tuanCreatTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180410154400",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "tuan_info",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

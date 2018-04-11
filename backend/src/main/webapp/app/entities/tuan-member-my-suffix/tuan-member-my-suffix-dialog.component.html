@@ -1,0 +1,98 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTuanMemberLabel" jhiTranslate="backendApp.tuanMember.home.createOrEditLabel">Create or edit a Tuan Member</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!tuanMember.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="tuanMember.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.tuanId" for="field_tuanId">Tuan Id</label>
+            <input type="number" class="form-control" name="tuanId" id="field_tuanId"
+                [(ngModel)]="tuanMember.tuanId" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.memberType" for="field_memberType">Member Type</label>
+            <input type="text" class="form-control" name="memberType" id="field_memberType"
+                [(ngModel)]="tuanMember.memberType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.memberDescrption" for="field_memberDescrption">Member Descrption</label>
+            <input type="text" class="form-control" name="memberDescrption" id="field_memberDescrption"
+                [(ngModel)]="tuanMember.memberDescrption" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.yearsOld" for="field_yearsOld">Years Old</label>
+            <input type="number" class="form-control" name="yearsOld" id="field_yearsOld"
+                [(ngModel)]="tuanMember.yearsOld" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.sex" for="field_sex">Sex</label>
+            <input type="text" class="form-control" name="sex" id="field_sex"
+                [(ngModel)]="tuanMember.sex" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.fromCity" for="field_fromCity">From City</label>
+            <input type="text" class="form-control" name="fromCity" id="field_fromCity"
+                [(ngModel)]="tuanMember.fromCity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.joinTime" for="field_joinTime">Join Time</label>
+            <div class="d-flex">
+                <input id="field_joinTime" type="datetime-local" class="form-control" name="joinTime" [(ngModel)]="tuanMember.joinTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="tuanMember.email" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                [(ngModel)]="tuanMember.phoneNumber" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.creator" for="field_creator">Creator</label>
+            <input type="text" class="form-control" name="creator" id="field_creator"
+                [(ngModel)]="tuanMember.creator" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.createDate" for="field_createDate">Create Date</label>
+            <div class="d-flex">
+                <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" [(ngModel)]="tuanMember.createDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.updateDate" for="field_updateDate">Update Date</label>
+            <div class="d-flex">
+                <input id="field_updateDate" type="datetime-local" class="form-control" name="updateDate" [(ngModel)]="tuanMember.updateDate"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.tuanMember.tuanInfo" for="field_tuanInfo">Tuan Info</label>
+            <select class="form-control" id="field_tuanInfo" name="tuanInfo" [(ngModel)]="tuanMember.tuanInfoId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tuanInfoOption.id" *ngFor="let tuanInfoOption of tuaninfos; trackBy: trackTuanInfoById">{{tuanInfoOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

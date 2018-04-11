@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity DaySechudlerInfo.
+    -->
+    <changeSet id="20180410154402-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tuan_info_id"
+                                 baseTableName="day_sechudler_info"
+                                 constraintName="fk_day_sechudler_info_tuan_info_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tuan_info"/>
+
+    </changeSet>
+</databaseChangeLog>

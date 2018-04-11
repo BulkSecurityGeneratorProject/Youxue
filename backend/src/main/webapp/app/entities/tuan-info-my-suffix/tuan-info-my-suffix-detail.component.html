@@ -1,0 +1,70 @@
+
+<div *ngIf="tuanInfo">
+    <h2><span jhiTranslate="backendApp.tuanInfo.detail.title">Tuan Info</span> {{tuanInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.tuanInfo.leader">Leader</span></dt>
+        <dd>
+            <span>{{tuanInfo.leader}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.tuanName">Tuan Name</span></dt>
+        <dd>
+            <span>{{tuanInfo.tuanName}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.tuanDescrption">Tuan Descrption</span></dt>
+        <dd>
+            <span>{{tuanInfo.tuanDescrption}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.city">City</span></dt>
+        <dd>
+            <span>{{tuanInfo.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.country">Country</span></dt>
+        <dd>
+            <span>{{tuanInfo.country}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.teamMemberCount">Team Member Count</span></dt>
+        <dd>
+            <span>{{tuanInfo.teamMemberCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.tuanStartTime">Tuan Start Time</span></dt>
+        <dd>
+            <span>{{tuanInfo.tuanStartTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.tuanEndTime">Tuan End Time</span></dt>
+        <dd>
+            <span>{{tuanInfo.tuanEndTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.tuanCreatTime">Tuan Creat Time</span></dt>
+        <dd>
+            <span>{{tuanInfo.tuanCreatTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.creator">Creator</span></dt>
+        <dd>
+            <span>{{tuanInfo.creator}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{tuanInfo.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanInfo.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{tuanInfo.updateDate | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tuan-info-my-suffix/'+ tuanInfo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

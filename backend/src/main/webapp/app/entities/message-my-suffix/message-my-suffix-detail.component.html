@@ -1,0 +1,84 @@
+
+<div *ngIf="message">
+    <h2><span jhiTranslate="backendApp.message.detail.title">Message</span> {{message.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.message.tuanId">Tuan Id</span></dt>
+        <dd>
+            <span>{{message.tuanId}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.body">Body</span></dt>
+        <dd>
+            <span>{{message.body}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.dayId">Day Id</span></dt>
+        <dd>
+            <span>{{message.dayId}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.type">Type</span></dt>
+        <dd>
+            <span>{{message.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.title">Title</span></dt>
+        <dd>
+            <span>{{message.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.pig1">Pig 1</span></dt>
+        <dd>
+            <span>{{message.pig1}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.pig2">Pig 2</span></dt>
+        <dd>
+            <span>{{message.pig2}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.pig3">Pig 3</span></dt>
+        <dd>
+            <span>{{message.pig3}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.voice">Voice</span></dt>
+        <dd>
+            <span>{{message.voice}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.vudio">Vudio</span></dt>
+        <dd>
+            <span>{{message.vudio}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.deployToQuan">Deploy To Quan</span></dt>
+        <dd>
+            <span>{{message.deployToQuan}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.creator">Creator</span></dt>
+        <dd>
+            <span>{{message.creator}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{message.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{message.updateDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.message.tuanInfo">Tuan Info</span></dt>
+        <dd>
+            <div *ngIf="message.tuanInfoId">
+                <a [routerLink]="['/tuan-info-my-suffix', message.tuanInfoId]">{{message.tuanInfoId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'message-my-suffix/'+ message.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="backendApp.tuanInfo.home.title">Tuan Infos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-tuan-info-my-suffix" [routerLink]="['/', { outlets: { popup: ['tuan-info-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="backendApp.tuanInfo.home.createLabel">
+            Create new Tuan Info
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="tuanInfos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.leader">Leader</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.tuanName">Tuan Name</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.tuanDescrption">Tuan Descrption</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.city">City</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.country">Country</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.teamMemberCount">Team Member Count</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.tuanStartTime">Tuan Start Time</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.tuanEndTime">Tuan End Time</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.tuanCreatTime">Tuan Creat Time</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.creator">Creator</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.createDate">Create Date</span></th>
+            <th><span jhiTranslate="backendApp.tuanInfo.updateDate">Update Date</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tuanInfo of tuanInfos ;trackBy: trackId">
+                <td><a [routerLink]="['../tuan-info-my-suffix', tuanInfo.id ]">{{tuanInfo.id}}</a></td>
+                <td>{{tuanInfo.leader}}</td>
+                <td>{{tuanInfo.tuanName}}</td>
+                <td>{{tuanInfo.tuanDescrption}}</td>
+                <td>{{tuanInfo.city}}</td>
+                <td>{{tuanInfo.country}}</td>
+                <td>{{tuanInfo.teamMemberCount}}</td>
+                <td>{{tuanInfo.tuanStartTime | date:'medium'}}</td>
+                <td>{{tuanInfo.tuanEndTime | date:'medium'}}</td>
+                <td>{{tuanInfo.tuanCreatTime | date:'medium'}}</td>
+                <td>{{tuanInfo.creator}}</td>
+                <td>{{tuanInfo.createDate | date:'medium'}}</td>
+                <td>{{tuanInfo.updateDate | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../tuan-info-my-suffix', tuanInfo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tuan-info-my-suffix/'+ tuanInfo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tuan-info-my-suffix/'+ tuanInfo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "tuanInfo",
+            "otherEntityName": "tuanInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tuanId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "weather",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dayName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mood",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amSchedule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pmSchedule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180410154402",
+    "entityTableName": "day_sechudler_info",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

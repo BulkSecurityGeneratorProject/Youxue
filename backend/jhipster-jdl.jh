@@ -1,0 +1,155 @@
+
+// an ignored comment
+/** not an ignored comment */
+entity TuanInfo {
+	id Long,
+	leader String,
+	tuanName String,
+    tuanDescrption String,
+	city String,
+    country String,
+    teamMemberCount Long,
+    
+    tuanStartTime Instant,
+    tuanEndTime Instant,
+    tuanCreatTime Instant,
+    
+    creator String,
+    createDate Instant,
+	updateDate Instant
+
+}
+
+entity TuanMember {
+	id Long,
+    tuanId Long,
+    memberType String,
+    memberDescrption String,
+    
+    yearsOld Long,
+    sex String,
+    fromCity String,
+    
+    joinTime Instant,
+    
+    email String,
+	phoneNumber String,
+    
+    creator String,
+    createDate Instant,
+	updateDate Instant,
+
+}
+
+entity DaySechudlerInfo {
+  tuanId Long,
+  id Long,
+  time Instant,
+  weather String,
+  dayName String,
+  mood String,
+  amSchedule String,
+  pmSchedule String,
+    creator String,
+    createDate Instant,
+	updateDate Instant,
+
+}
+
+entity Message {
+    tuanId Long,
+    id Long,
+	body String required,
+    
+    dayId Long,
+	type String ,
+    title String ,
+    pig1 String ,
+    pig2 String ,
+    pig3 String ,
+    voice String ,
+    vudio String ,
+    deployToQuan Boolean ,
+
+    creator String,
+    createDate Instant,
+	updateDate Instant,
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity MessageComment {
+    messageBelongId Long,
+    id Long,
+    creator String,
+    createDate Instant,
+	updateDate Instant,
+    
+    body String required,
+	
+}
+
+/**
+ * The Employee entity.
+ */
+entity Employee {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	hireDate Instant,
+	salary Long,
+	commissionPct Long
+}
+
+entity Job {
+	jobTitle String,
+	minSalary Long,
+	maxSalary Long
+}
+
+entity JobHistory {
+	startDate Instant,
+	endDate Instant,
+	language Language
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	TuanInfo{tuanmember} to TuanMember,
+	TuanInfo{daysechudlerinfo} to DaySechudlerInfo,
+    TuanInfo{message} to Message,
+    Message{comment} to MessageComment
+}
+
+relationship ManyToOne {
+	Employee{manager} to Employee
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	JobHistory{job} to Job,
+	//JobHistory{department} to Department,
+	JobHistory{employee} to Employee
+}
+
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+// Set an angular suffix
+angularSuffix * with mySuffix

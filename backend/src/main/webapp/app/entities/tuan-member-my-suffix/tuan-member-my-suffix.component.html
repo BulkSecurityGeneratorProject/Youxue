@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="backendApp.tuanMember.home.title">Tuan Members</span>
+        <button class="btn btn-primary float-right jh-create-entity create-tuan-member-my-suffix" [routerLink]="['/', { outlets: { popup: ['tuan-member-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="backendApp.tuanMember.home.createLabel">
+            Create new Tuan Member
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="tuanMembers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.tuanId">Tuan Id</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.memberType">Member Type</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.memberDescrption">Member Descrption</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.yearsOld">Years Old</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.sex">Sex</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.fromCity">From City</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.joinTime">Join Time</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.email">Email</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.phoneNumber">Phone Number</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.creator">Creator</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.createDate">Create Date</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.updateDate">Update Date</span></th>
+            <th><span jhiTranslate="backendApp.tuanMember.tuanInfo">Tuan Info</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tuanMember of tuanMembers ;trackBy: trackId">
+                <td><a [routerLink]="['../tuan-member-my-suffix', tuanMember.id ]">{{tuanMember.id}}</a></td>
+                <td>{{tuanMember.tuanId}}</td>
+                <td>{{tuanMember.memberType}}</td>
+                <td>{{tuanMember.memberDescrption}}</td>
+                <td>{{tuanMember.yearsOld}}</td>
+                <td>{{tuanMember.sex}}</td>
+                <td>{{tuanMember.fromCity}}</td>
+                <td>{{tuanMember.joinTime | date:'medium'}}</td>
+                <td>{{tuanMember.email}}</td>
+                <td>{{tuanMember.phoneNumber}}</td>
+                <td>{{tuanMember.creator}}</td>
+                <td>{{tuanMember.createDate | date:'medium'}}</td>
+                <td>{{tuanMember.updateDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="tuanMember.tuanInfoId">
+                        <a [routerLink]="['../tuan-info-my-suffix', tuanMember.tuanInfoId  ]" >{{tuanMember.tuanInfoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../tuan-member-my-suffix', tuanMember.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tuan-member-my-suffix/'+ tuanMember.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tuan-member-my-suffix/'+ tuanMember.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

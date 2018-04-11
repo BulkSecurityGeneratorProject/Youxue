@@ -1,0 +1,76 @@
+
+<div *ngIf="tuanMember">
+    <h2><span jhiTranslate="backendApp.tuanMember.detail.title">Tuan Member</span> {{tuanMember.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.tuanMember.tuanId">Tuan Id</span></dt>
+        <dd>
+            <span>{{tuanMember.tuanId}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.memberType">Member Type</span></dt>
+        <dd>
+            <span>{{tuanMember.memberType}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.memberDescrption">Member Descrption</span></dt>
+        <dd>
+            <span>{{tuanMember.memberDescrption}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.yearsOld">Years Old</span></dt>
+        <dd>
+            <span>{{tuanMember.yearsOld}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.sex">Sex</span></dt>
+        <dd>
+            <span>{{tuanMember.sex}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.fromCity">From City</span></dt>
+        <dd>
+            <span>{{tuanMember.fromCity}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.joinTime">Join Time</span></dt>
+        <dd>
+            <span>{{tuanMember.joinTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.email">Email</span></dt>
+        <dd>
+            <span>{{tuanMember.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{tuanMember.phoneNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.creator">Creator</span></dt>
+        <dd>
+            <span>{{tuanMember.creator}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{tuanMember.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{tuanMember.updateDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.tuanMember.tuanInfo">Tuan Info</span></dt>
+        <dd>
+            <div *ngIf="tuanMember.tuanInfoId">
+                <a [routerLink]="['/tuan-info-my-suffix', tuanMember.tuanInfoId]">{{tuanMember.tuanInfoId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tuan-member-my-suffix/'+ tuanMember.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

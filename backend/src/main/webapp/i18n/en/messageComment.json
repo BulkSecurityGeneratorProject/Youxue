@@ -1,0 +1,27 @@
+
+{
+    "backendApp": {
+        "messageComment" : {
+            "home": {
+                "title": "Message Comments",
+                "createLabel": "Create a new Message Comment",
+                "createOrEditLabel": "Create or edit a Message Comment"
+            },
+            "created": "A new Message Comment is created with identifier {{ param }}",
+            "updated": "A Message Comment is updated with identifier {{ param }}",
+            "deleted": "A Message Comment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Message Comment {{ id }}?"
+            },
+            "detail": {
+                "title": "Message Comment"
+            },
+            "messageBelongId": "Message Belong Id",
+            "creator": "Creator",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "body": "Body",
+            "message": "Message"
+        }
+    }
+}

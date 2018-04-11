@@ -1,0 +1,68 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "tuanInfo",
+            "otherEntityName": "tuanInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tuanId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "memberType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "memberDescrption",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "yearsOld",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "sex",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fromCity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "joinTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180410154401",
+    "entityTableName": "tuan_member",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

@@ -1,0 +1,68 @@
+
+<div *ngIf="daySechudlerInfo">
+    <h2><span jhiTranslate="backendApp.daySechudlerInfo.detail.title">Day Sechudler Info</span> {{daySechudlerInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.tuanId">Tuan Id</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.tuanId}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.time">Time</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.time | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.weather">Weather</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.weather}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.dayName">Day Name</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.dayName}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.mood">Mood</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.mood}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.amSchedule">Am Schedule</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.amSchedule}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.pmSchedule">Pm Schedule</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.pmSchedule}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.creator">Creator</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.creator}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{daySechudlerInfo.updateDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.daySechudlerInfo.tuanInfo">Tuan Info</span></dt>
+        <dd>
+            <div *ngIf="daySechudlerInfo.tuanInfoId">
+                <a [routerLink]="['/tuan-info-my-suffix', daySechudlerInfo.tuanInfoId]">{{daySechudlerInfo.tuanInfoId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'day-sechudler-info-my-suffix/'+ daySechudlerInfo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

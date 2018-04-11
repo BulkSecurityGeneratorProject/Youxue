@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="backendApp.messageComment.home.title">Message Comments</span>
+        <button class="btn btn-primary float-right jh-create-entity create-message-comment-my-suffix" [routerLink]="['/', { outlets: { popup: ['message-comment-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="backendApp.messageComment.home.createLabel">
+            Create new Message Comment
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="messageComments">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="backendApp.messageComment.messageBelongId">Message Belong Id</span></th>
+            <th><span jhiTranslate="backendApp.messageComment.creator">Creator</span></th>
+            <th><span jhiTranslate="backendApp.messageComment.createDate">Create Date</span></th>
+            <th><span jhiTranslate="backendApp.messageComment.updateDate">Update Date</span></th>
+            <th><span jhiTranslate="backendApp.messageComment.body">Body</span></th>
+            <th><span jhiTranslate="backendApp.messageComment.message">Message</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let messageComment of messageComments ;trackBy: trackId">
+                <td><a [routerLink]="['../message-comment-my-suffix', messageComment.id ]">{{messageComment.id}}</a></td>
+                <td>{{messageComment.messageBelongId}}</td>
+                <td>{{messageComment.creator}}</td>
+                <td>{{messageComment.createDate | date:'medium'}}</td>
+                <td>{{messageComment.updateDate | date:'medium'}}</td>
+                <td>{{messageComment.body}}</td>
+                <td>
+                    <div *ngIf="messageComment.messageId">
+                        <a [routerLink]="['../message-my-suffix', messageComment.messageId  ]" >{{messageComment.messageId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../message-comment-my-suffix', messageComment.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'message-comment-my-suffix/'+ messageComment.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'message-comment-my-suffix/'+ messageComment.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

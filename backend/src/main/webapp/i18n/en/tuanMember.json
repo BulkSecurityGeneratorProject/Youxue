@@ -1,0 +1,34 @@
+
+{
+    "backendApp": {
+        "tuanMember" : {
+            "home": {
+                "title": "Tuan Members",
+                "createLabel": "Create a new Tuan Member",
+                "createOrEditLabel": "Create or edit a Tuan Member"
+            },
+            "created": "A new Tuan Member is created with identifier {{ param }}",
+            "updated": "A Tuan Member is updated with identifier {{ param }}",
+            "deleted": "A Tuan Member is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tuan Member {{ id }}?"
+            },
+            "detail": {
+                "title": "Tuan Member"
+            },
+            "tuanId": "Tuan Id",
+            "memberType": "Member Type",
+            "memberDescrption": "Member Descrption",
+            "yearsOld": "Years Old",
+            "sex": "Sex",
+            "fromCity": "From City",
+            "joinTime": "Join Time",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "creator": "Creator",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "tuanInfo": "Tuan Info"
+        }
+    }
+}

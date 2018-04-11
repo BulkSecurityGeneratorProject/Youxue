@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMessageCommentLabel" jhiTranslate="backendApp.messageComment.home.createOrEditLabel">Create or edit a Message Comment</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!messageComment.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="messageComment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.messageComment.messageBelongId" for="field_messageBelongId">Message Belong Id</label>
+            <input type="number" class="form-control" name="messageBelongId" id="field_messageBelongId"
+                [(ngModel)]="messageComment.messageBelongId" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.messageComment.creator" for="field_creator">Creator</label>
+            <input type="text" class="form-control" name="creator" id="field_creator"
+                [(ngModel)]="messageComment.creator" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.messageComment.createDate" for="field_createDate">Create Date</label>
+            <div class="d-flex">
+                <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" [(ngModel)]="messageComment.createDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.messageComment.updateDate" for="field_updateDate">Update Date</label>
+            <div class="d-flex">
+                <input id="field_updateDate" type="datetime-local" class="form-control" name="updateDate" [(ngModel)]="messageComment.updateDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.messageComment.body" for="field_body">Body</label>
+            <input type="text" class="form-control" name="body" id="field_body"
+                [(ngModel)]="messageComment.body" required/>
+            <div [hidden]="!(editForm.controls.body?.dirty && editForm.controls.body?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.body?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.messageComment.message" for="field_message">Message</label>
+            <select class="form-control" id="field_message" name="message" [(ngModel)]="messageComment.messageId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="messageOption.id" *ngFor="let messageOption of messages; trackBy: trackMessageById">{{messageOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
