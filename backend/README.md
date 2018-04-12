@@ -2,7 +2,15 @@
 This application was generated using JHipster 4.14.2, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.14.2](http://www.jhipster.tech/documentation-archive/v4.14.2).
 
 ## Development
+user mysql:
+chang pom:
+ <url>jdbc:mysql://116.62.218.53:3306/backend</url>
+ <defaultSchemaName>backend</defaultSchemaName>
+ <username>root</username>
+ <password>xxxxx</password>
 
+
+#
 mvn liquibase:clearCheckSums
 
 ./mvnw liquibase:update
@@ -11,6 +19,35 @@ mvn liquibase:clearCheckSums
 
 ./mvnw -Pdev,no-liquibase
 
+… Liquibase: Waiting for changelog lock....
+mysql clean lock:
+
+mysql> SELECT * FROM DATABASECHANGELOGLOCK;
++----+--------+---------------------+-----------------------------------------+
+| ID | LOCKED | LOCKGRANTED         | LOCKEDBY                                |
++----+--------+---------------------+-----------------------------------------+
+|  1 |       | 2018-04-10 14:52:02 | izbp12bdx6sqk1ff173rojz (172.16.241.62) |
++----+--------+---------------------+-----------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> UPDATE DATABASECHANGELOGLOCK
+    -> SET locked=0, lockgranted=null, lockedby=null
+    -> WHERE id=1;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM DATABASECHANGELOGLOCK;
++----+--------+-------------+----------+
+| ID | LOCKED | LOCKGRANTED | LOCKEDBY |
++----+--------+-------------+----------+
+|  1 |        | NULL        | NULL     |
++----+--------+-------------+----------+
+1 row in set (0.01 sec)
+
+
+#add api:
+in SecurityConfiguration :
+.antMatchers("/api/**");
 
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
