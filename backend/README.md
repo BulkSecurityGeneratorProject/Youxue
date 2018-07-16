@@ -18,6 +18,10 @@ mvn liquibase:clearCheckSums
 #查看本地配置和db之间的差异，更新db，创建新的表等
 ./mvnw liquibase:diff
 
+
+#如果要在一个已经存在数据的项目或者数据库，则要使用命令导出新的 xml 格式的日志文件或者 changSet 标签
+ ./mvnw liquibase:generateChangeLog
+ 
 ./mvnw -Pdev,no-liquibase
 
 … Liquibase: Waiting for changelog lock....
