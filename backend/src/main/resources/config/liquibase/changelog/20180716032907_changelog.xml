@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="zhuenqing (generated)" id="1531711855048-1">
+      <createTable tableName="day_sechudler_info">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="day_sechudler_infoPK"/>
+         </column>
+         <column name="am_schedule" type="VARCHAR(255)"/>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="day_name" type="VARCHAR(255)"/>
+         <column name="mood" type="VARCHAR(255)"/>
+         <column name="pm_schedule" type="VARCHAR(255)"/>
+         <column name="jhi_time" type="TINYBLOB"/>
+         <column name="tuan_id" type="BIGINT"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="weather" type="VARCHAR(255)"/>
+         <column name="tuan_info_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-2">
+      <createTable tableName="message">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="messagePK"/>
+         </column>
+         <column name="jhi_body" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="day_id" type="BIGINT"/>
+         <column name="deploy_to_quan" type="BIT"/>
+         <column name="pig_1" type="VARCHAR(255)"/>
+         <column name="pig_2" type="VARCHAR(255)"/>
+         <column name="pig_3" type="VARCHAR(255)"/>
+         <column name="title" type="VARCHAR(255)"/>
+         <column name="tuan_id" type="BIGINT"/>
+         <column name="jhi_type" type="VARCHAR(255)"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="voice" type="VARCHAR(255)"/>
+         <column name="vudio" type="VARCHAR(255)"/>
+         <column name="tuan_info_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-3">
+      <createTable tableName="message_comment">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="message_commentPK"/>
+         </column>
+         <column name="jhi_body" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="message_belong_id" type="BIGINT"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="message_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-4">
+      <createTable tableName="tuan_info">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="tuan_infoPK"/>
+         </column>
+         <column name="city" type="VARCHAR(255)"/>
+         <column name="country" type="VARCHAR(255)"/>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="leader" type="VARCHAR(255)"/>
+         <column name="team_member_count" type="BIGINT"/>
+         <column name="tuan_creat_time" type="TINYBLOB"/>
+         <column name="tuan_descrption" type="VARCHAR(255)"/>
+         <column name="tuan_end_time" type="TINYBLOB"/>
+         <column name="tuan_name" type="VARCHAR(255)"/>
+         <column name="tuan_start_time" type="TINYBLOB"/>
+         <column name="update_date" type="TINYBLOB"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-5">
+      <createTable tableName="tuan_member">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="tuan_memberPK"/>
+         </column>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="email" type="VARCHAR(255)"/>
+         <column name="from_city" type="VARCHAR(255)"/>
+         <column name="join_time" type="TINYBLOB"/>
+         <column name="member_descrption" type="VARCHAR(255)"/>
+         <column name="member_type" type="VARCHAR(255)"/>
+         <column name="phone_number" type="VARCHAR(255)"/>
+         <column name="sex" type="VARCHAR(255)"/>
+         <column name="tuan_id" type="BIGINT"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="years_old" type="BIGINT"/>
+         <column name="tuan_info_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-6">
+      <addForeignKeyConstraint baseColumnNames="tuan_info_id"
+                               baseTableName="day_sechudler_info"
+                               constraintName="FK76whuv2i29kr4eo77cmiq56kw"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="tuan_info"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-7">
+      <addForeignKeyConstraint baseColumnNames="tuan_info_id"
+                               baseTableName="message"
+                               constraintName="FKa4td3ff9gkwigb9ltacncwa91"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="tuan_info"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-8">
+      <addForeignKeyConstraint baseColumnNames="message_id"
+                               baseTableName="message_comment"
+                               constraintName="FKp6u6a6ky3gp2njenqv0oa5cy5"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="message"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-9">
+      <addForeignKeyConstraint baseColumnNames="tuan_info_id"
+                               baseTableName="tuan_member"
+                               constraintName="FKrqby1n14356hqo9r5ihdcgoqq"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="tuan_info"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-10">
+      <dropForeignKeyConstraint baseTableName="country" constraintName="fk_country_region_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-11">
+      <dropForeignKeyConstraint baseTableName="department" constraintName="fk_department_location_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-12">
+      <dropForeignKeyConstraint baseTableName="employee" constraintName="fk_employee_department_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-13">
+      <dropForeignKeyConstraint baseTableName="job" constraintName="fk_job_employee_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-14">
+      <dropForeignKeyConstraint baseTableName="job_history"
+                                constraintName="fk_job_history_department_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-15">
+      <dropForeignKeyConstraint baseTableName="job_task" constraintName="fk_job_task_jobs_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-16">
+      <dropForeignKeyConstraint baseTableName="job_task" constraintName="fk_job_task_tasks_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-17">
+      <dropForeignKeyConstraint baseTableName="location" constraintName="fk_location_country_id"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-18">
+      <dropUniqueConstraint constraintName="country_id" tableName="location"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-19">
+      <dropUniqueConstraint constraintName="department_id" tableName="job_history"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-20">
+      <dropUniqueConstraint constraintName="location_id" tableName="department"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-21">
+      <dropUniqueConstraint constraintName="region_id" tableName="country"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-22">
+      <dropTable tableName="country"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-23">
+      <dropTable tableName="department"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-24">
+      <dropTable tableName="farm"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-25">
+      <dropTable tableName="job_task"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-26">
+      <dropTable tableName="location"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-27">
+      <dropTable tableName="region"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-28">
+      <dropTable tableName="task"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-29">
+      <dropColumn columnName="department_id" tableName="employee"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-30">
+      <dropColumn columnName="department_id" tableName="job_history"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531711855048-31">
+      <dropColumn columnName="employee_id" tableName="job"/>
+   </changeSet>
+</databaseChangeLog>

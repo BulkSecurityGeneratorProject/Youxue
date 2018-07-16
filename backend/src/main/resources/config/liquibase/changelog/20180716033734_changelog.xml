@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="zhuenqing (generated)" id="1531712260601-1">
+      <createTable tableName="day_sechudler_info">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="day_sechudler_infoPK"/>
+         </column>
+         <column name="am_schedule" type="VARCHAR(255)"/>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="day_name" type="VARCHAR(255)"/>
+         <column name="mood" type="VARCHAR(255)"/>
+         <column name="pm_schedule" type="VARCHAR(255)"/>
+         <column name="jhi_time" type="TINYBLOB"/>
+         <column name="tuan_id" type="BIGINT"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="weather" type="VARCHAR(255)"/>
+         <column name="tuan_info_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-2">
+      <createTable tableName="employee">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="employeePK"/>
+         </column>
+         <column name="commission_pct" type="BIGINT"/>
+         <column name="email" type="VARCHAR(255)"/>
+         <column name="first_name" type="VARCHAR(255)"/>
+         <column name="hire_date" type="TINYBLOB"/>
+         <column name="last_name" type="VARCHAR(255)"/>
+         <column name="phone_number" type="VARCHAR(255)"/>
+         <column name="salary" type="BIGINT"/>
+         <column name="manager_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-3">
+      <createTable tableName="jhi_authority">
+         <column name="name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-4">
+      <createTable tableName="jhi_persistent_audit_event">
+         <column autoIncrement="true" name="event_id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+         </column>
+         <column name="event_date" type="TINYBLOB"/>
+         <column name="event_type" type="VARCHAR(255)"/>
+         <column name="principal" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-5">
+      <createTable tableName="jhi_persistent_audit_evt_data">
+         <column name="event_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="value" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-6">
+      <createTable tableName="jhi_user">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+         </column>
+         <column name="created_by" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="created_date" type="TINYBLOB">
+            <constraints nullable="false"/>
+         </column>
+         <column name="last_modified_by" type="VARCHAR(50)"/>
+         <column name="last_modified_date" type="TINYBLOB"/>
+         <column name="activated" type="BIT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="activation_key" type="VARCHAR(20)"/>
+         <column name="email" type="VARCHAR(100)"/>
+         <column name="first_name" type="VARCHAR(50)"/>
+         <column name="image_url" type="VARCHAR(256)"/>
+         <column name="lang_key" type="VARCHAR(6)"/>
+         <column name="last_name" type="VARCHAR(50)"/>
+         <column name="login" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="password_hash" type="VARCHAR(60)"/>
+         <column name="reset_date" type="TINYBLOB"/>
+         <column name="reset_key" type="VARCHAR(20)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-7">
+      <createTable tableName="jhi_user_authority">
+         <column name="user_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="authority_name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-8">
+      <createTable tableName="job">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jobPK"/>
+         </column>
+         <column name="job_title" type="VARCHAR(255)"/>
+         <column name="max_salary" type="BIGINT"/>
+         <column name="min_salary" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-9">
+      <createTable tableName="job_history">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="job_historyPK"/>
+         </column>
+         <column name="end_date" type="TINYBLOB"/>
+         <column name="language" type="VARCHAR(255)"/>
+         <column name="start_date" type="TINYBLOB"/>
+         <column name="employee_id" type="BIGINT"/>
+         <column name="job_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-10">
+      <createTable tableName="message">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="messagePK"/>
+         </column>
+         <column name="jhi_body" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="day_id" type="BIGINT"/>
+         <column name="deploy_to_quan" type="BIT"/>
+         <column name="pig_1" type="VARCHAR(255)"/>
+         <column name="pig_2" type="VARCHAR(255)"/>
+         <column name="pig_3" type="VARCHAR(255)"/>
+         <column name="title" type="VARCHAR(255)"/>
+         <column name="tuan_id" type="BIGINT"/>
+         <column name="jhi_type" type="VARCHAR(255)"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="voice" type="VARCHAR(255)"/>
+         <column name="vudio" type="VARCHAR(255)"/>
+         <column name="tuan_info_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-11">
+      <createTable tableName="message_comment">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="message_commentPK"/>
+         </column>
+         <column name="jhi_body" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="message_belong_id" type="BIGINT"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="message_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-12">
+      <createTable tableName="tuan_info">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="tuan_infoPK"/>
+         </column>
+         <column name="city" type="VARCHAR(255)"/>
+         <column name="country" type="VARCHAR(255)"/>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="leader" type="VARCHAR(255)"/>
+         <column name="team_member_count" type="BIGINT"/>
+         <column name="tuan_creat_time" type="TINYBLOB"/>
+         <column name="tuan_descrption" type="VARCHAR(255)"/>
+         <column name="tuan_end_time" type="TINYBLOB"/>
+         <column name="tuan_name" type="VARCHAR(255)"/>
+         <column name="tuan_start_time" type="TINYBLOB"/>
+         <column name="update_date" type="TINYBLOB"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-13">
+      <createTable tableName="tuan_member">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="tuan_memberPK"/>
+         </column>
+         <column name="create_date" type="TINYBLOB"/>
+         <column name="creator" type="VARCHAR(255)"/>
+         <column name="email" type="VARCHAR(255)"/>
+         <column name="from_city" type="VARCHAR(255)"/>
+         <column name="join_time" type="TINYBLOB"/>
+         <column name="member_descrption" type="VARCHAR(255)"/>
+         <column name="member_type" type="VARCHAR(255)"/>
+         <column name="phone_number" type="VARCHAR(255)"/>
+         <column name="sex" type="VARCHAR(255)"/>
+         <column name="tuan_id" type="BIGINT"/>
+         <column name="update_date" type="TINYBLOB"/>
+         <column name="years_old" type="BIGINT"/>
+         <column name="tuan_info_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-14">
+      <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-15">
+      <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-16">
+      <addPrimaryKey columnNames="name"
+                     constraintName="jhi_authorityPK"
+                     tableName="jhi_authority"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-17">
+      <addUniqueConstraint columnNames="email"
+                           constraintName="UC_JHI_USEREMAIL_COL"
+                           tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-18">
+      <addUniqueConstraint columnNames="login"
+                           constraintName="UC_JHI_USERLOGIN_COL"
+                           tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-19">
+      <addUniqueConstraint columnNames="employee_id"
+                           constraintName="UC_JOB_HISTORYEMPLOYEE_ID_COL"
+                           tableName="job_history"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-20">
+      <addUniqueConstraint columnNames="job_id"
+                           constraintName="UC_JOB_HISTORYJOB_ID_COL"
+                           tableName="job_history"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-21">
+      <addForeignKeyConstraint baseColumnNames="job_id"
+                               baseTableName="job_history"
+                               constraintName="FK1qikydvi1h4879h5mkvpddnu5"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="job"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-22">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="jhi_user_authority"
+                               constraintName="FK290okww5jujghp4el5i7mgwu0"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-23">
+      <addForeignKeyConstraint baseColumnNames="event_id"
+                               baseTableName="jhi_persistent_audit_evt_data"
+                               constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="event_id"
+                               referencedTableName="jhi_persistent_audit_event"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-24">
+      <addForeignKeyConstraint baseColumnNames="employee_id"
+                               baseTableName="job_history"
+                               constraintName="FK3j9mpn82on45fsk7ah4tps67o"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="employee"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-25">
+      <addForeignKeyConstraint baseColumnNames="authority_name"
+                               baseTableName="jhi_user_authority"
+                               constraintName="FK4psxl0jtx6nr7rhqbynr6itoc"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="name"
+                               referencedTableName="jhi_authority"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-26">
+      <addForeignKeyConstraint baseColumnNames="tuan_info_id"
+                               baseTableName="day_sechudler_info"
+                               constraintName="FK76whuv2i29kr4eo77cmiq56kw"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="tuan_info"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-27">
+      <addForeignKeyConstraint baseColumnNames="tuan_info_id"
+                               baseTableName="message"
+                               constraintName="FKa4td3ff9gkwigb9ltacncwa91"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="tuan_info"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-28">
+      <addForeignKeyConstraint baseColumnNames="manager_id"
+                               baseTableName="employee"
+                               constraintName="FKou6wbxug1d0qf9mabut3xqblo"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="employee"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-29">
+      <addForeignKeyConstraint baseColumnNames="message_id"
+                               baseTableName="message_comment"
+                               constraintName="FKp6u6a6ky3gp2njenqv0oa5cy5"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="message"/>
+   </changeSet>
+   <changeSet author="zhuenqing (generated)" id="1531712260601-30">
+      <addForeignKeyConstraint baseColumnNames="tuan_info_id"
+                               baseTableName="tuan_member"
+                               constraintName="FKrqby1n14356hqo9r5ihdcgoqq"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="tuan_info"/>
+   </changeSet>
+</databaseChangeLog>
