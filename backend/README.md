@@ -15,6 +15,7 @@ mvn liquibase:clearCheckSums
 
 ./mvnw liquibase:update
 
+#查看本地配置和db之间的差异，更新db，创建新的表等
 ./mvnw liquibase:diff
 
 ./mvnw -Pdev,no-liquibase
